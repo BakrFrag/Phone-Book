@@ -10,6 +10,10 @@ class Contact(models.Model):
 
 
 class PhoneNumber(models.Model):
+    """
+    contact number have to be unique also
+    must match standard phone number 11 number starts with 01
+    """
     number = models.CharField(max_length=256,unique=True,validators=[
         RegexValidator(
        
