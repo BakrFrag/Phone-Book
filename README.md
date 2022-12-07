@@ -23,12 +23,16 @@ simple phonebook application that has contact names and their numbers
 ## Dockerization 
  
  - Dockerfile included and run up on python alpine 
+ - build new docker image using docker file ` docker image build -t phonebook:1.0 . `
+ - create docker container from docker image ` docker run -d --name book -p 8000:800 {IMAGE_ID}`
+ - now you can consume urls from you localhost using port 8000
+ 
  
  ## Build Project 
  
  - project build with python Version 3.10 
  - Django 4.1 
- - Django Rest 4.3
+ - Django Rest 3.14
  
  ## Prerequestes 
  
