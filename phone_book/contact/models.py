@@ -6,15 +6,16 @@ class Contact(models.Model):
     """
     reprsents contact name , contact name unique
     """
-    username = models.CharField(max_length=256 , unique=True)
-
+    username = models.CharField(max_length=255 , unique=True , blank=False)
+    def __str__(self):
+        return self.username
 
 class PhoneNumber(models.Model):
     """
     contact number have to be unique also
     must match standard phone number 11 number starts with 01
     """
-    number = models.CharField(max_length=256,unique=True,validators=[
+    number = models.CharField(max_length=255,blank=False,unique=True,validators=[
         RegexValidator(
        
             regex='^01\d{9}' , 
@@ -23,5 +24,7 @@ class PhoneNumber(models.Model):
     ])
     contact = models.ForeignKey(Contact , on_delete= models.CASCADE , related_name="numbers")
     
+    def __str__(self):
+        return self.number
 
 
